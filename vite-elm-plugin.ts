@@ -46,7 +46,7 @@ function buildDefaultUserConfigForElm({ mode, elmCompiledJs, isWatchMode }: Defa
     },
 
     define: {
-      __IS_DEV_MODE__: mode === "development",
+      __VITE_DEFINE_IS_DEBUG_MODE__: mode === "development",
     },
   };
 }
