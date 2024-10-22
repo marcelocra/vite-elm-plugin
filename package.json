@@ -1,26 +1,33 @@
 {
   "name": "vite-elm-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compile your Elm files as part of the Vite development workflow.",
   "type": "module",
   "exports": "./vite-elm-plugin.js",
   "license": "BSD-3-Clause",
   "files": [
-    "main.js"
+    "vite-elm-plugin.js",
+    "vite-elm-plugin.js.map",
+    "vite-elm-plugin.d.ts"
   ],
+  "types": "./vite-elm-plugin.d.ts",
   "scripts": {
-    "release": "esbuild ./vite-elm-plugin.ts --bundle --minify --sourcemap --format=esm --platform=node --outfile=vite-elm-plugin.js"
+    "ts": "tsc",
+    "build": "esbuild ./vite-elm-plugin.ts --bundle --minify --sourcemap --format=esm --platform=node --outfile=vite-elm-plugin.js",
+    "release": "run-s -l ts build",
+    "release:watch": "run-p -l 'ts -w' 'build --watch'"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/node": "^20.14.5",
+    "@types/node": "^22.7.4",
     "esbuild": "0.23.0",
     "eslint": "^9.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.1.0",
     "npm-run-all2": "^6.2.0",
     "prettier": "^3.3.3",
-    "vite": "^5.3.5"
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2"
   },
   "prettier": {
     "importOrder": [
@@ -38,6 +45,10 @@
       "@trivago/prettier-plugin-sort-imports"
     ]
   },
+  "engines": {
+    "node": ">= 20"
+  },
+  "engineStrict": true,
   "author": {
     "name": "Marcelo Almeida",
     "email": "2532492+marcelocra@users.noreply.github.com"

@@ -1,6 +1,6 @@
 import { execSync } from "node:child_process";
 
-import { ConfigEnv, Plugin, UserConfig } from "vite";
+import { ConfigEnv, PluginOption, UserConfig } from "vite";
 
 const PLUGIN_NAME = "vite-elm-plugin";
 
@@ -82,14 +82,14 @@ export function elmCompilerPlugin({
   shouldOptimizeOutput = false,
   ignoreElm = false,
   extraConfigs = {},
-}: ElmCompilerPluginOptions = {}): Plugin {
+}: ElmCompilerPluginOptions = {}): PluginOption {
   // Check if `vite build --watch` is being used
   let isWatchMode = process.argv.includes("--watch");
   let shouldOptimize = shouldOptimizeOutput;
   console.log("isWatchMode", isWatchMode);
   console.log("shouldOptimize", shouldOptimize);
 
-  return {
+  const plugin: PluginOption = {
     name: PLUGIN_NAME,
 
     // Set default Vite options like 'base' and others
@@ -161,4 +161,6 @@ export function elmCompilerPlugin({
       }
     },
   };
+
+  return plugin;
 }
