@@ -1,0 +1,22 @@
+# My preferred settings. Details and docs below.
+
+root = true
+
+[*]
+
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+spelling_language = pt-BR
+max_line_length = 120
+
+[*.{py,sh,zsh,bash}]
+indent_size = 4
+max_line_length = 80
+
+[*.{fs,fsi,fsx,elm,lua}]
+indent_size = 4
+
