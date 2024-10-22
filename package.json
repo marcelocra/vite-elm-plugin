@@ -1,8 +1,11 @@
 {
   "name": "vite-elm-plugin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Compile your Elm files as part of the Vite development workflow.",
   "type": "module",
+  "bin": {
+    "elm": "./bin/elm-v0.19.1"
+  },
   "exports": "./vite-elm-plugin.js",
   "license": "BSD-3-Clause",
   "files": [
